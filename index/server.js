@@ -17,7 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // CORS middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://your-frontend-domain.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 // Routes
 app.use('/api/skills', require('./routes/routesklil'));
